@@ -1,0 +1,12 @@
+---
+
+- name: Downloading files
+  hosts: all
+  tasks:
+  - name: Downlodaing the file to folder
+    get_url:
+      url: https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2024-09/R/eclipse-inst-jre-win64.exe 
+      dest: /home/ubuntu/des
+      owner: ubuntu
+      mode: 0777
+

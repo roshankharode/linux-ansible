@@ -1,0 +1,13 @@
+---
+- name: install nginx server
+  hosts: all
+  become: yes
+  vars:
+    - lists: [update, fail2ban, ufw, docker.io, postgresql, mariadb-server, git, apache2]
+
+  tasks:
+  - name: installing nginx
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items: "{{ lists }}"

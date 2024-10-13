@@ -1,0 +1,20 @@
+---
+- name: enabeling the firewall
+  hosts: all
+  become: true
+  tasks:
+  - name: turning on http servic
+    firewalld:
+      port: 80/tcp
+      permanent: true
+      state: enabled
+      immediate: true
+
+
+  - name: reload firewall service
+    service:
+      name: firewalld
+      state: reloaded
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

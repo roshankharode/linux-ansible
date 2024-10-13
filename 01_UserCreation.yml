@@ -1,0 +1,11 @@
+---
+- name: Creating user
+  hosts: all
+  become: yes
+  tasks:
+    - name: User creation
+      user:
+        name: kharode
+        comment: Creating new user
+        shell: /bin/bash
+

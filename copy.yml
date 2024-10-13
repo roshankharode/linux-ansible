@@ -1,0 +1,12 @@
+---
+
+- name: copying files
+  hosts: all
+  become: yes
+  tasks:
+  - name: doing task
+    copy:
+      src: /etc/ansible/playbooks
+      dest: /home/ubuntu/des
+      owner: ubuntu
+      backup: true 
